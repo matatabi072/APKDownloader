@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>APK Downloader 連携の設定</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --fg: #1c1f24;
+        --muted: #5b6470;
+        --bg: #ffffff;
+        --field: #f3f5f8;
+        --line: #d6dbe2;
+        --accent: #2f6fd0;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --fg: #e6e9ee;
+          --muted: #a7b0bc;
+          --bg: #1b1e23;
+          --field: #262a31;
+          --line: #3a404a;
+          --accent: #6aa2f0;
+        }
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+        max-width: 560px;
+        font-family: "Segoe UI", "Yu Gothic UI", system-ui, sans-serif;
+        color: var(--fg);
+        background: var(--bg);
+        line-height: 1.7;
+      }
+      h1 { font-size: 18px; margin: 0 0 4px; }
+      p.lead { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+      label { display: block; font-size: 13px; font-weight: 600; margin: 16px 0 4px; }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 10px;
+        font-size: 14px;
+        font-family: ui-monospace, "Consolas", monospace;
+        color: var(--fg);
+        background: var(--field);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+      .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+      .row { display: flex; gap: 8px; margin-top: 20px; }
+      button {
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 6px;
+        border: 1px solid var(--line);
+        background: var(--field);
+        color: var(--fg);
+        cursor: pointer;
+      }
+      button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+      button:hover { filter: brightness(1.08); }
+      #status { margin-top: 16px; font-size: 13px; min-height: 1.7em; }
+      #status.ok { color: #2e9e5b; }
+      #status.ng { color: #d0463c; }
+    </style>
+  </head>
+  <body>
+    <h1>APK Downloader 連携</h1>
+    <p class="lead">
+      常駐アプリの「設定 → ブラウザー連携」に表示されている値をそのまま入れてください。
+    </p>
+
+    <label for="port">ポート番号</label>
+    <input id="port" type="number" min="1" max="65535" />
+    <div class="hint">既定は 48915 です（デバッグ版は 48916）。</div>
+
+    <label for="token">合言葉</label>
+    <input id="token" type="text" spellcheck="false" placeholder="アプリの設定画面からコピー" />
+    <div class="hint">
+      localhost の受け口は同じ端末の他のプログラムからも見えます。合言葉はそれを防ぐためのものです。
+    </div>
+
+    <div class="row">
+      <button id="save" class="primary">保存</button>
+      <button id="test">接続を確認</button>
+    </div>
+
+    <div id="status"></div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

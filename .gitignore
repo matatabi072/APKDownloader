@@ -1,0 +1,32 @@
+# ビルド成果物
+/target/
+
+# 拡張機能のパッケージと、その署名鍵。
+# .pem は CRX の秘密鍵なので絶対に公開しないこと。持っている人は同じ ID の拡張を作れる。
+extension.crx
+extension.pem
+
+# 常駐アプリが EXE の隣に作る実行時データ (設定・履歴・ログ)。
+# settings.json には受け口の合言葉が平文で入る。
+/data/
+/data-debug/
+
+# 取得した APK
+*.apk
+*.xapk
+
+# ログ・一時
+*.log
+*.tmp
+*.bak
+
+# エディター
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

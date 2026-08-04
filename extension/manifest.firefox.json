@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "APK Downloader 連携",
+  "version": "0.1.0",
+  "description": "Google Play のページを右クリックして、常駐中の APK Downloader へ URL を送ります。",
+
+  "//": "Firefox は MV3 でも service_worker を受け付けないため、background は scripts で書く。この 1 点だけが Chrome/Edge 版との違い。",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "apk-downloader-bridge@local",
+      "strict_min_version": "115.0"
+    }
+  },
+  "permissions": ["contextMenus", "storage", "notifications"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "APK Downloader の設定",
+    "default_popup": "options.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
