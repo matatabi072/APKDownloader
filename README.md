@@ -256,3 +256,18 @@ extension/       ブラウザー拡張 (MV3)
 APK の取得は、Google Play の利用規約やミラーサイトの規約に触れる場合がある。
 自分が権利を持つアプリの取得、手元の端末へのインストール、検証目的など、
 利用者の責任で適法な範囲で使うこと。取得元の選択と資格情報の管理は利用者に委ねている。
+
+---
+
+## ライセンス
+
+MIT。全文は [LICENSE](LICENSE)。
+
+依存クレートの権利表示は [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) に収録した
+(303 クレート / ライセンス本文 205 種)。Rust は依存を静的リンクするので、MIT や BSD の
+ように「著作権表示を残す」ことを条件にするライセンスの義務が、配布する実行ファイル側に乗る。
+生成は `tools/make-notices.ps1`。`cargo metadata --filter-platform` が返す、実際に
+リンクされるクレートだけを対象にしている。
+
+取得部の [apkeep](https://github.com/EFForg/apkeep) は別の実行ファイルなので、この表示には
+含めていない。EXE と一緒に同梱して配る場合は、apkeep 側の MIT ライセンス本文も添えること。
