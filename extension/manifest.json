@@ -4,18 +4,12 @@
   "version": "0.1.0",
   "description": "Google Play のページを右クリックして、常駐中の APK Downloader へ URL を送ります。",
 
-  "//": "Firefox は MV3 でも service_worker を受け付けないため、background は scripts で書く。この 1 点だけが Chrome/Edge 版との違い。",
+  "//": "Chrome / Edge 版。Firefox は MV3 でも service_worker を受け付けないので、あちらは manifest.firefox.json を使う。このファイルを Firefox 版で上書きしないこと。",
 
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "apk-downloader-bridge@local",
-      "strict_min_version": "115.0"
-    }
-  },
   "permissions": ["contextMenus", "storage", "notifications"],
   "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   },
   "options_ui": {
     "page": "options.html",

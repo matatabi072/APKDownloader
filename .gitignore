@@ -30,3 +30,6 @@ extension.pem
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# 仕様書 (PC 固有のパスを例示に使うため、公開リポジトリには載せない)
+*仕様書*
